@@ -47,12 +47,9 @@ for thread in c.reddit_threads:
     for json in res:
         output = json['data']['children']
         bodies = [list(find('body', o)) for o in output]
-     
-        #Do some nasty cleansing to find the data we need
-        #Set json starting point in URL
         data = data + bodies
      
-    #Wait between 10 and 15 seconds to prevent reddit from blocking the script
+    #Wait between 10 and 15 seconds to (?) prevent reddit from blocking the script
     time.sleep(10 + randint(0,5))
 
 data = list(itertools.chain(*data))
